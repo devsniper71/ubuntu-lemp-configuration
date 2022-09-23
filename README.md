@@ -1,8 +1,8 @@
 # Prepare for Ubuntu Server Setup
 ```shell
 cd
-git clone https://github.com/FierceBengalTiger/ubuntu-lemp-configuration.git
-cd ubuntu-lemp-configuration
+git clone https://github.com/mdrasel24633/ubuntu-lemp-configuration.git UbuntuLEMPConfiguration
+cd UbuntuLEMPConfiguration
 chmod +x install.sh
 sudo ./install.sh
 ```
@@ -12,13 +12,13 @@ sudo ./install.sh
 - > Lastly it also install the mysql secure installation script so you need to configure your DB settings.
 # Add conf for your Domain
 ```shell
-sudo cp ~/ubuntu-lemp-configuration/sample_conf /etc/nginx/sites-available/example.com.conf
+sudo cp ~/UbuntuLEMPConfiguration/sample_conf /etc/nginx/sites-available/example.com.conf
 sudo ln -s /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-enabled/example.com.conf
 sudo vim /etc/nginx/sites-available/example.com.conf
 ```
 # Add conf with SSL for your Domain
 ```shell
-sudo cp ~/ubuntu-lemp-configuration/sample_ssl_conf /etc/nginx/sites-available/example.com.conf
+sudo cp ~/UbuntuLEMPConfiguration/sample_ssl_conf /etc/nginx/sites-available/example.com.conf
 sudo ln -s /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-enabled/example.com.conf
 sudo vim /etc/nginx/sites-available/example.com.conf
 ```
