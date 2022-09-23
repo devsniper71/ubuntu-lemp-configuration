@@ -210,10 +210,10 @@ sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.0/cli/php.ini
 sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.0/cli/php.ini
 sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.0/cli/php.ini
 
-# Installing Nginx & php-fpm
+# Installing php-fpm
 
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
-echo "> Installing Nginx & php-fpm"
+echo "> Installing php-fpm"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
