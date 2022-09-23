@@ -217,7 +217,7 @@ echo "> Installing Nginx & php-fpm"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
-nginx php8.1-fpm php8.0-fpm php7.4-fpm php7.3-fpm php7.2-fpm php7.1-fpm php7.0-fpm
+php8.1-fpm php8.0-fpm php7.4-fpm php7.3-fpm php7.2-fpm php7.1-fpm php7.0-fpm
 
 systemctl restart nginx
 
