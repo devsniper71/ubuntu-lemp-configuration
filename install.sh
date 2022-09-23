@@ -22,7 +22,6 @@ echo "--------------------------------------------------------------------------
 
 apt-get install -y software-properties-common
 
-apt-add-repository ppa:nginx/stable -y
 apt-add-repository ppa:ondrej/php -y
 
 # Updating Package List
@@ -42,6 +41,16 @@ echo "--------------------------------------------------------------------------
 apt-get install -y build-essential dos2unix gcc libmcrypt4 libpcre3-dev ntp unzip \
 make python2.7-dev re2c supervisor unattended-upgrades whois libnotify-bin \
 pv cifs-utils mcrypt zsh
+
+# Installing Nginx
+
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+echo "> Installing Nginx"
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+apt-get install -y nginx
+
+ufw allow 'Nginx HTTP'
 
 # Installing PHP stuffs
 
