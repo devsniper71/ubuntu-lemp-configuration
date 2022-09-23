@@ -598,5 +598,5 @@ echo "--------------------------------------------------------------------------
 apt-get install -y certbot python3-certbot-nginx
 
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
-echo "Finished server setup for your Ubuntu machine and Thanks from FierceBengalTiger..."
+echo "Finished server setup for your Ubuntu machine and Thanks from RAXMOO..."
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
