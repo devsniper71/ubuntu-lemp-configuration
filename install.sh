@@ -544,23 +544,23 @@ systemctl enable php7.0-fpm
 
 # Installing MariaDB
 
-# echo "--------------------------------------------------------------------------------------------------------------------------------------------"
-# echo "> Installing MariaDB"
-# echo "--------------------------------------------------------------------------------------------------------------------------------------------"
-
-# apt-get -y update
-# apt-get -y upgrade
-# apt-get install -y mariadb-server mariadb-client
-
-# Installing MySQL
-
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
-echo "> Installing MySQL"
+echo "> Installing MariaDB"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
 apt-get -y update
 apt-get -y upgrade
-apt-get install -y mysql-server mysql-client
+apt-get install -y mariadb-server mariadb-client
+
+# Installing MySQL
+
+# echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+# echo "> Installing MySQL"
+# echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+# apt-get -y update
+# apt-get -y upgrade
+# apt-get install -y mysql-server mysql-client
 
 # Configuring MariaDB service
 
