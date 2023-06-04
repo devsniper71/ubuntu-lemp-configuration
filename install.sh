@@ -58,7 +58,26 @@ echo "--------------------------------------------------------------------------
 echo "> Installing PHP stuffs"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
-# Current PHP 8.1
+# Current PHP 8.2
+
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+echo "> PHP 8.2"
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
+php8.2-common \
+php8.2-mysql \
+php8.2-xml php8.2-xmlrpc \
+php8.2-curl php8.2-gd php8.2-imagick \
+php8.2-cli php8.2-dev php8.2-imap php8.2-mbstring \
+php8.2-opcache php8.2-soap php8.2-zip php8.2-redis php8.2-intl \
+php8.2-sqlite3 \
+php8.2-memcached \
+php8.2-bcmath \
+php8.2-readline php8.2-bz2 \
+php8.2-xdebug
+
+# PHP 8.1
 
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 echo "> PHP 8.1"
@@ -167,13 +186,18 @@ php7.0-xml php7.0-zip php7.0-bcmath php7.0-soap \
 php7.0-intl php7.0-readline php7.0-bz2 \
 php7.0-xdebug php7.0-json
 
-update-alternatives --set php /usr/bin/php8.1
+update-alternatives --set php /usr/bin/php8.2
 
 # Configuring PHP CLI settings
 
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 echo "> Configuring PHP CLI settings"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/8.2/cli/php.ini
+sed -i "s/display_errors = .*/display_errors = On/" /etc/php/8.2/cli/php.ini
+sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/8.2/cli/php.ini
+sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/8.2/cli/php.ini
 
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/8.1/cli/php.ini
 sed -i "s/display_errors = .*/display_errors = On/" /etc/php/8.1/cli/php.ini
@@ -217,7 +241,7 @@ echo "> Installing php-fpm"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
-php8.1-fpm php8.0-fpm php7.4-fpm php7.3-fpm php7.2-fpm php7.1-fpm php7.0-fpm
+php8.2-fpm php8.1-fpm php8.0-fpm php7.4-fpm php7.3-fpm php7.2-fpm php7.1-fpm php7.0-fpm
 
 systemctl restart nginx
 
@@ -235,6 +259,32 @@ mv composer.phar /usr/local/bin/composer
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 echo "> Configuring php-fpm options"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+# PHP 8.2
+
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+echo "> PHP 8.2"
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+echo "xdebug.remote_enable = 1" >> /etc/php/8.2/mods-available/xdebug.ini
+echo "xdebug.remote_connect_back = 1" >> /etc/php/8.2/mods-available/xdebug.ini
+echo "xdebug.remote_port = 9003" >> /etc/php/8.2/mods-available/xdebug.ini
+echo "xdebug.max_nesting_level = 512" >> /etc/php/8.2/mods-available/xdebug.ini
+echo "opcache.revalidate_freq = 0" >> /etc/php/8.2/mods-available/opcache.ini
+
+sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/8.2/fpm/php.ini
+sed -i "s/display_errors = .*/display_errors = On/" /etc/php/8.2/fpm/php.ini
+sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/8.2/fpm/php.ini
+sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/8.2/fpm/php.ini
+sed -i "s/upload_max_filesize = .*/upload_max_filesize = 100M/" /etc/php/8.2/fpm/php.ini
+sed -i "s/post_max_size = .*/post_max_size = 100M/" /etc/php/8.2/fpm/php.ini
+sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/8.2/fpm/php.ini
+
+printf "[openssl]\n" | tee -a /etc/php/8.2/fpm/php.ini
+printf "openssl.cainfo = /etc/ssl/certs/ca-certificates.crt\n" | tee -a /etc/php/8.2/fpm/php.ini
+
+printf "[curl]\n" | tee -a /etc/php/8.2/fpm/php.ini
+printf "curl.cainfo = /etc/ssl/certs/ca-certificates.crt\n" | tee -a /etc/php/8.2/fpm/php.ini
 
 # PHP 8.1
 
@@ -462,6 +512,14 @@ echo "--------------------------------------------------------------------------
 
 sed -i "s/# server_names_hash_bucket_size.*/server_names_hash_bucket_size 64;/" /etc/nginx/nginx.conf
 
+# PHP 8.2
+
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+echo "> PHP 8.2"
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+sed -i "s/;listen\.mode.*/listen.mode = 0666/" /etc/php/8.2/fpm/pool.d/www.conf
+
 # PHP 8.1
 
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
@@ -525,6 +583,7 @@ echo "> Configuring Nginx & PHP services"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
 systemctl restart nginx
+systemctl restart php8.2-fpm
 systemctl restart php8.1-fpm
 systemctl restart php8.0-fpm
 systemctl restart php7.4-fpm
@@ -534,6 +593,7 @@ systemctl restart php7.1-fpm
 systemctl restart php7.0-fpm
 
 systemctl enable nginx
+systemctl enable php8.2-fpm
 systemctl enable php8.1-fpm
 systemctl enable php8.0-fpm
 systemctl enable php7.4-fpm
@@ -552,16 +612,6 @@ apt-get -y update
 apt-get -y upgrade
 apt-get install -y mariadb-server mariadb-client
 
-# Installing MySQL
-
-# echo "--------------------------------------------------------------------------------------------------------------------------------------------"
-# echo "> Installing MySQL"
-# echo "--------------------------------------------------------------------------------------------------------------------------------------------"
-
-# apt-get -y update
-# apt-get -y upgrade
-# apt-get install -y mysql-server mysql-client
-
 # Configuring MariaDB service
 
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
@@ -574,11 +624,11 @@ systemctl enable mysql
 
 # Configuring post installation security script
 
-# echo "--------------------------------------------------------------------------------------------------------------------------------------------"
-# echo "> Configuring post installation security script"
-# echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+echo "> Configuring post installation security script"
+echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
-# mysql_secure_installation
+mysql_secure_installation
 
 # Configuring Supervisor
 
