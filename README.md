@@ -1,7 +1,7 @@
 # Prepare for Ubuntu Server Setup
 ```shell
 cd
-git clone https://github.com/mdrasel24633/ubuntu-lemp-configuration.git UbuntuLEMPConfiguration
+git clone https://github.com/raselism71/ubuntu-lemp-configuration.git UbuntuLEMPConfiguration
 cd UbuntuLEMPConfiguration
 chmod +x install.sh
 sudo ./install.sh
