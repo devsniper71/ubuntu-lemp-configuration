@@ -284,7 +284,6 @@ php7.0-pgsql \
 php7.0-sqlite3 \
 php7.0-gd \
 php7.0-curl \
-php7.0-memcached \
 php7.0-imap \
 php7.0-mysql \
 php7.0-mbstring \
@@ -295,7 +294,6 @@ php7.0-soap \
 php7.0-intl \
 php7.0-readline \
 php7.0-bz2 \
-php7.0-xdebug \
 php7.0-json
 
 update-alternatives --set php /usr/bin/php8.3
@@ -341,10 +339,10 @@ sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.2/cli/php.ini
 sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.2/cli/php.ini
 sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.2/cli/php.ini
 
-# sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/7.1/cli/php.ini
-# sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.1/cli/php.ini
-# sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.1/cli/php.ini
-# sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.1/cli/php.ini
+sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/7.1/cli/php.ini
+sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.1/cli/php.ini
+sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.1/cli/php.ini
+sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.1/cli/php.ini
 
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/7.0/cli/php.ini
 sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.0/cli/php.ini
