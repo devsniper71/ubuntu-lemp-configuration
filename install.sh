@@ -39,7 +39,9 @@ echo "> Installing basic packages"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
 apt-get install -y build-essential dos2unix gcc libmcrypt4 libpcre3-dev ntp unzip \
-make python2.7-dev re2c supervisor unattended-upgrades whois libnotify-bin \
+make \
+# python2.7-dev \
+re2c supervisor unattended-upgrades whois libnotify-bin \
 pv cifs-utils mcrypt zsh
 
 # Installing Nginx
@@ -89,11 +91,12 @@ php8.2-mysql \
 php8.2-xml php8.2-xmlrpc \
 php8.2-curl php8.2-gd \
 # php8.2-imagick \
-php8.2-cli php8.2-dev php8.2-imap php8.2-mbstring \
+# php8.2-cli \
+php8.2-dev php8.2-imap php8.2-mbstring \
 php8.2-opcache php8.2-soap php8.2-zip php8.2-redis php8.2-intl \
 php8.2-sqlite3 \
 # php8.2-memcached \
-php8.2-bcmath \
+# php8.2-bcmath \
 php8.2-readline php8.2-bz2 \
 php8.2-xdebug
 
@@ -109,11 +112,12 @@ php8.1-mysql \
 php8.1-xml php8.1-xmlrpc \
 php8.1-curl php8.1-gd \
 # php8.1-imagick \
-php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring \
+# php8.1-cli \
+php8.1-dev php8.1-imap php8.1-mbstring \
 php8.1-opcache php8.1-soap php8.1-zip php8.1-redis php8.1-intl \
 php8.1-sqlite3 \
 # php8.1-memcached \
-php8.1-bcmath \
+# php8.1-bcmath \
 php8.1-readline php8.1-bz2 \
 php8.1-xdebug
 
@@ -128,7 +132,8 @@ php8.0-cli php8.0-dev \
 php8.0-pgsql php8.0-sqlite3 php8.0-gd \
 php8.0-curl \
 # php8.0-memcached \
-php8.0-imap php8.0-mysql php8.0-mbstring \
+# php8.0-imap \
+php8.0-mysql php8.0-mbstring \
 php8.0-xml php8.0-zip php8.0-bcmath php8.0-soap \
 php8.0-intl php8.0-readline php8.0-bz2 \
 php8.0-xdebug
@@ -144,11 +149,13 @@ php7.4-cli php7.4-dev \
 php7.4-pgsql php7.4-sqlite3 php7.4-gd \
 php7.4-curl \
 # php7.4-memcached \
-php7.4-imap php7.4-mysql php7.4-mbstring \
+# php7.4-imap \
+php7.4-mysql php7.4-mbstring \
 php7.4-xml php7.4-zip php7.4-bcmath php7.4-soap \
-php7.4-intl php7.4-readline php7.4-bz2 \
+php7.4-intl php7.4-readline \ 
+php7.4-bz2
 # php7.4-xdebug \
-php7.4-json
+# php7.4-json
 
 # PHP 7.3
 
@@ -161,11 +168,12 @@ php7.3-cli php7.3-dev \
 php7.3-pgsql php7.3-sqlite3 php7.3-gd \
 php7.3-curl \
 # php7.3-memcached \
-php7.3-imap php7.3-mysql php7.3-mbstring \
+# php7.3-imap \
+php7.3-mysql php7.3-mbstring \
 php7.3-xml php7.3-zip php7.3-bcmath php7.3-soap \
 php7.3-intl php7.3-readline php7.3-bz2 \
 # php7.3-xdebug \
-php7.3-json
+# php7.3-json
 
 # PHP 7.2
 
@@ -178,11 +186,12 @@ php7.2-cli php7.2-dev \
 php7.2-pgsql php7.2-sqlite3 php7.2-gd \
 php7.2-curl \
 # php7.2-memcached \
-php7.2-imap php7.2-mysql php7.2-mbstring \
+# php7.2-imap \
+php7.2-mysql php7.2-mbstring \
 php7.2-xml php7.2-zip php7.2-bcmath php7.2-soap \
 php7.2-intl php7.2-readline php7.2-bz2 \
 # php7.2-xdebug \
-php7.2-json
+# php7.2-json
 
 # PHP 7.1
 
@@ -193,11 +202,14 @@ echo "--------------------------------------------------------------------------
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php7.1-cli php7.1-dev \
 php7.1-pgsql php7.1-sqlite3 php7.1-gd \
-php7.1-curl php7.1-memcached \
-php7.1-imap php7.1-mysql php7.1-mbstring \
+php7.1-curl \
+# php7.1-memcached \
+# php7.1-imap \
+php7.1-mysql php7.1-mbstring \
 php7.1-xml php7.1-zip php7.1-bcmath php7.1-soap \
 php7.1-intl php7.1-readline php7.1-bz2 \
-php7.1-xdebug php7.1-json
+# php7.1-xdebug \
+# php7.1-json
 
 # PHP 7.0
 
@@ -209,11 +221,12 @@ apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-he
 php7.0-cli php7.0-dev \
 php7.0-pgsql php7.0-sqlite3 php7.0-gd \
 # php7.0-curl php7.0-memcached \
-php7.0-imap php7.0-mysql php7.0-mbstring \
+# php7.0-imap \
+php7.0-mysql php7.0-mbstring \
 php7.0-xml php7.0-zip php7.0-bcmath php7.0-soap \
 php7.0-intl php7.0-readline php7.0-bz2 \
 # php7.0-xdebug \
-php7.0-json
+# php7.0-json
 
 update-alternatives --set php /usr/bin/php8.3
 
@@ -258,10 +271,10 @@ sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.2/cli/php.ini
 sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.2/cli/php.ini
 sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.2/cli/php.ini
 
-sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/7.1/cli/php.ini
-sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.1/cli/php.ini
-sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.1/cli/php.ini
-sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.1/cli/php.ini
+# sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/7.1/cli/php.ini
+# sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.1/cli/php.ini
+# sed -i "s/memory_limit = .*/memory_limit = 512M/" /etc/php/7.1/cli/php.ini
+# sed -i "s/;date.timezone.*/date.timezone = UTC/" /etc/php/7.1/cli/php.ini
 
 sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php/7.0/cli/php.ini
 sed -i "s/display_errors = .*/display_errors = On/" /etc/php/7.0/cli/php.ini
@@ -543,25 +556,25 @@ echo "> Configuring fastcgi_params"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 
 cat > /etc/nginx/fastcgi_params << EOF
-fastcgi_param	QUERY_STRING		\$query_string;
-fastcgi_param	REQUEST_METHOD		\$request_method;
-fastcgi_param	CONTENT_TYPE		\$content_type;
-fastcgi_param	CONTENT_LENGTH		\$content_length;
-fastcgi_param	SCRIPT_FILENAME		\$request_filename;
-fastcgi_param	SCRIPT_NAME			\$fastcgi_script_name;
-fastcgi_param	REQUEST_URI			\$request_uri;
-fastcgi_param	DOCUMENT_URI		\$document_uri;
-fastcgi_param	DOCUMENT_ROOT		\$document_root;
-fastcgi_param	SERVER_PROTOCOL		\$server_protocol;
-fastcgi_param	GATEWAY_INTERFACE	CGI/1.1;
-fastcgi_param	SERVER_SOFTWARE		nginx/\$nginx_version;
-fastcgi_param	REMOTE_ADDR			\$remote_addr;
-fastcgi_param	REMOTE_PORT			\$remote_port;
-fastcgi_param	SERVER_ADDR			\$server_addr;
-fastcgi_param	SERVER_PORT			\$server_port;
-fastcgi_param	SERVER_NAME			\$server_name;
-fastcgi_param	HTTPS				\$https if_not_empty;
-fastcgi_param	REDIRECT_STATUS		200;
+fastcgi_param   QUERY_STRING        \$query_string;
+fastcgi_param   REQUEST_METHOD      \$request_method;
+fastcgi_param   CONTENT_TYPE        \$content_type;
+fastcgi_param   CONTENT_LENGTH      \$content_length;
+fastcgi_param   SCRIPT_FILENAME     \$request_filename;
+fastcgi_param   SCRIPT_NAME         \$fastcgi_script_name;
+fastcgi_param   REQUEST_URI         \$request_uri;
+fastcgi_param   DOCUMENT_URI        \$document_uri;
+fastcgi_param   DOCUMENT_ROOT       \$document_root;
+fastcgi_param   SERVER_PROTOCOL     \$server_protocol;
+fastcgi_param   GATEWAY_INTERFACE   CGI/1.1;
+fastcgi_param   SERVER_SOFTWARE     nginx/\$nginx_version;
+fastcgi_param   REMOTE_ADDR         \$remote_addr;
+fastcgi_param   REMOTE_PORT         \$remote_port;
+fastcgi_param   SERVER_ADDR         \$server_addr;
+fastcgi_param   SERVER_PORT         \$server_port;
+fastcgi_param   SERVER_NAME         \$server_name;
+fastcgi_param   HTTPS               \$https if_not_empty;
+fastcgi_param   REDIRECT_STATUS     200;
 EOF
 
 # Configuring Nginx & php-fpm user
@@ -733,3 +746,5 @@ apt-get install -y certbot python3-certbot-nginx
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 echo "Finished server setup for your Ubuntu machine and Thanks from RAXMOO..."
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+
