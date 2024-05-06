@@ -40,7 +40,6 @@ echo "--------------------------------------------------------------------------
 
 apt-get install -y build-essential dos2unix gcc libmcrypt4 libpcre3-dev ntp unzip \
 make \
-# python2.7-dev \
 re2c supervisor unattended-upgrades whois libnotify-bin \
 pv cifs-utils mcrypt zsh
 
