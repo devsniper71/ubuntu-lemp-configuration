@@ -184,7 +184,6 @@ php7.4-pgsql \
 php7.4-sqlite3 \
 php7.4-gd \
 php7.4-curl \
-php7.4-memcached \
 php7.4-imap \
 php7.4-mysql \
 php7.4-mbstring \
@@ -195,7 +194,6 @@ php7.4-soap \
 php7.4-intl \
 php7.4-readline \
 php7.4-bz2 \
-php7.4-xdebug \
 php7.4-json
 
 # PHP 7.3
@@ -211,7 +209,6 @@ php7.3-pgsql \
 php7.3-sqlite3 \
 php7.3-gd \
 php7.3-curl \
-php7.3-memcached \
 php7.3-imap \
 php7.3-mysql \
 php7.3-mbstring \
@@ -222,7 +219,6 @@ php7.3-soap \
 php7.3-intl \
 php7.3-readline \
 php7.3-bz2 \
-php7.3-xdebug \
 php7.3-json
 
 # PHP 7.2
@@ -238,7 +234,6 @@ php7.2-pgsql \
 php7.2-sqlite3 \
 php7.2-gd \
 php7.2-curl \
-php7.2-memcached \
 php7.2-imap \
 php7.2-mysql \
 php7.2-mbstring \
@@ -249,7 +244,6 @@ php7.2-soap \
 php7.2-intl \
 php7.2-readline \
 php7.2-bz2 \
-php7.2-xdebug \
 php7.2-json
 
 # PHP 7.1
@@ -265,7 +259,6 @@ php7.1-pgsql \
 php7.1-sqlite3 \
 php7.1-gd \
 php7.1-curl \
-php7.1-memcached \
 php7.1-imap \
 php7.1-mysql \
 php7.1-mbstring \
@@ -276,7 +269,6 @@ php7.1-soap \
 php7.1-intl \
 php7.1-readline \
 php7.1-bz2 \
-php7.1-xdebug \
 php7.1-json
 
 # PHP 7.0
