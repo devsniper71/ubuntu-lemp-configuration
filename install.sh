@@ -87,11 +87,12 @@ apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-he
 php8.2-common \
 php8.2-mysql \
 php8.2-xml php8.2-xmlrpc \
-php8.2-curl php8.2-gd php8.2-imagick \
+php8.2-curl php8.2-gd \
+# php8.2-imagick \
 php8.2-cli php8.2-dev php8.2-imap php8.2-mbstring \
 php8.2-opcache php8.2-soap php8.2-zip php8.2-redis php8.2-intl \
 php8.2-sqlite3 \
-php8.2-memcached \
+# php8.2-memcached \
 php8.2-bcmath \
 php8.2-readline php8.2-bz2 \
 php8.2-xdebug
@@ -106,11 +107,12 @@ apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-he
 php8.1-common \
 php8.1-mysql \
 php8.1-xml php8.1-xmlrpc \
-php8.1-curl php8.1-gd php8.1-imagick \
+php8.1-curl php8.1-gd \
+# php8.1-imagick \
 php8.1-cli php8.1-dev php8.1-imap php8.1-mbstring \
 php8.1-opcache php8.1-soap php8.1-zip php8.1-redis php8.1-intl \
 php8.1-sqlite3 \
-php8.1-memcached \
+# php8.1-memcached \
 php8.1-bcmath \
 php8.1-readline php8.1-bz2 \
 php8.1-xdebug
@@ -124,7 +126,8 @@ echo "--------------------------------------------------------------------------
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php8.0-cli php8.0-dev \
 php8.0-pgsql php8.0-sqlite3 php8.0-gd \
-php8.0-curl php8.0-memcached \
+php8.0-curl \
+# php8.0-memcached \
 php8.0-imap php8.0-mysql php8.0-mbstring \
 php8.0-xml php8.0-zip php8.0-bcmath php8.0-soap \
 php8.0-intl php8.0-readline php8.0-bz2 \
@@ -139,11 +142,13 @@ echo "--------------------------------------------------------------------------
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php7.4-cli php7.4-dev \
 php7.4-pgsql php7.4-sqlite3 php7.4-gd \
-php7.4-curl php7.4-memcached \
+php7.4-curl \
+# php7.4-memcached \
 php7.4-imap php7.4-mysql php7.4-mbstring \
 php7.4-xml php7.4-zip php7.4-bcmath php7.4-soap \
 php7.4-intl php7.4-readline php7.4-bz2 \
-php7.4-xdebug php7.4-json
+# php7.4-xdebug \
+php7.4-json
 
 # PHP 7.3
 
@@ -154,11 +159,13 @@ echo "--------------------------------------------------------------------------
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php7.3-cli php7.3-dev \
 php7.3-pgsql php7.3-sqlite3 php7.3-gd \
-php7.3-curl php7.3-memcached \
+php7.3-curl \
+# php7.3-memcached \
 php7.3-imap php7.3-mysql php7.3-mbstring \
 php7.3-xml php7.3-zip php7.3-bcmath php7.3-soap \
 php7.3-intl php7.3-readline php7.3-bz2 \
-php7.3-xdebug php7.3-json
+# php7.3-xdebug \
+php7.3-json
 
 # PHP 7.2
 
@@ -169,11 +176,13 @@ echo "--------------------------------------------------------------------------
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php7.2-cli php7.2-dev \
 php7.2-pgsql php7.2-sqlite3 php7.2-gd \
-php7.2-curl php7.2-memcached \
+php7.2-curl \
+# php7.2-memcached \
 php7.2-imap php7.2-mysql php7.2-mbstring \
 php7.2-xml php7.2-zip php7.2-bcmath php7.2-soap \
 php7.2-intl php7.2-readline php7.2-bz2 \
-php7.2-xdebug php7.2-json
+# php7.2-xdebug \
+php7.2-json
 
 # PHP 7.1
 
@@ -199,11 +208,12 @@ echo "--------------------------------------------------------------------------
 apt-get install -y --allow-downgrades --allow-remove-essential --allow-change-held-packages --allow-unauthenticated \
 php7.0-cli php7.0-dev \
 php7.0-pgsql php7.0-sqlite3 php7.0-gd \
-php7.0-curl php7.0-memcached \
+# php7.0-curl php7.0-memcached \
 php7.0-imap php7.0-mysql php7.0-mbstring \
 php7.0-xml php7.0-zip php7.0-bcmath php7.0-soap \
 php7.0-intl php7.0-readline php7.0-bz2 \
-php7.0-xdebug php7.0-json
+# php7.0-xdebug \
+php7.0-json
 
 update-alternatives --set php /usr/bin/php8.3
 
@@ -695,6 +705,9 @@ mysql_secure_installation
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
 echo "> Configuring Supervisor"
 echo "--------------------------------------------------------------------------------------------------------------------------------------------"
+
+apt-get -y update && apt-get -y upgrade && apt-get -y autoremove && apt-get -y autoclean
+apt-get install supervisor -y
 
 systemctl daemon-reload
 
