@@ -103,7 +103,6 @@ php8.2-xml \
 php8.2-xmlrpc \
 php8.2-curl \
 php8.2-gd \
-php8.2-imagick \
 php8.2-cli \
 php8.2-dev \
 php8.2-imap \
