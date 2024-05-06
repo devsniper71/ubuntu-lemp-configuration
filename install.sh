@@ -112,7 +112,7 @@ php8.2-soap \
 php8.2-zip \
 php8.2-redis \
 php8.2-intl \
-php8.2-sqlite3 
+php8.2-sqlite3 \
 php8.2-memcached \
 php8.2-bcmath \
 php8.2-readline \
@@ -142,7 +142,7 @@ php8.1-soap \
 php8.1-zip \
 php8.1-redis \
 php8.1-intl \
-php8.1-sqlite3 
+php8.1-sqlite3 \
 php8.1-memcached \
 php8.1-bcmath \
 php8.1-readline \
@@ -170,7 +170,7 @@ php8.0-xml \
 php8.0-zip \
 php8.0-bcmath \
 hp8.0-soap \
-php8.0-intl 
+php8.0-intl \
 php8.0-readline \
 php8.0-bz2 \
 php8.0-xdebug
@@ -197,7 +197,7 @@ php7.4-zip \
 php7.4-bcmath \
 php7.4-soap \
 php7.4-intl \
-php7.4-readline \ 
+php7.4-readline \
 php7.4-bz2 \
 php7.4-xdebug \
 php7.4-json
