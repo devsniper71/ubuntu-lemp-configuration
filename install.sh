@@ -131,7 +131,6 @@ php8.1-xml \
 php8.1-xmlrpc \
 php8.1-curl \
 php8.1-gd \
-php8.1-imagick \
 php8.1-cli \
 php8.1-dev \
 php8.1-imap \
@@ -142,7 +141,6 @@ php8.1-zip \
 php8.1-redis \
 php8.1-intl \
 php8.1-sqlite3 \
-php8.1-memcached \
 php8.1-bcmath \
 php8.1-readline \
 php8.1-bz2 \
@@ -161,7 +159,6 @@ php8.0-pgsql \
 php8.0-sqlite3 \
 php8.0-gd \
 php8.0-curl \
-php8.0-memcached \
 php8.0-imap \
 php8.0-mysql \
 php8.0-mbstring \
